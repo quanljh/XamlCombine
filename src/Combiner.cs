@@ -58,6 +58,10 @@
             // For each resource file
             for (var i = 0; i < resources.Length; i++)
             {
+                // Ignores line comment start with "#"
+                if (resources[i].TrimStart().StartsWith("#"))
+                    continue;
+
                 var current = new XmlDocument();
                 current.Load(this.GetFilePath(resources[i]));
 
